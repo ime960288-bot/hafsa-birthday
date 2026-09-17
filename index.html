@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Happy Birthday</title>
+
+    <style>
+      body {
+        text-align: center;
+        background: pink;
+        font-family: Arial;
+        margin: 0;
+      }
+
+      img {
+        width: 300px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: hotpink;
+        color: white;
+      }
+
+      /* ================= BACKGROUND ANIMATION VIDEO ================= */
+
+      #bgAnimation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        display: none;
+        opacity: 0.45;
+      }
+
+      /* First page content animation ke upar rahega */
+      #firstPage {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Next button hidden */
+      #nextButton {
+        display: none;
+      }
+
+      /* ================= VIDEO SECTION ================= */
+
+      #videoSection {
+        display: none;
+        width: 100%;
+        height: 100vh;
+
+        background-image: url("images/hafsa bg.jpeg");
+        background-size: cover;
+        background-position: center;
+
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #birthdayVideo {
+        width: 80%;
+        max-width: 1000px;
+        max-height: 80vh;
+      }
+
+      /* Video ke baad wala button */
+      #messageButton {
+        display: none;
+      }
+
+      /* ================= MESSAGE SECTION ================= */
+
+      #messageSection {
+        display: none;
+        height: 100vh;
+        background: pink;
+
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #messageSection h2 {
+        color: hotpink;
+        font-size: 40px;
+      }
+
+      #messageSection p {
+        color: #333;
+        font-size: 25px;
+        max-width: 700px;
+        padding: 20px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= BACKGROUND ANIMATION VIDEO ================= -->
+
+    <video id="bgAnimation" muted loop>
+      <source src="video\bgm video.mp4" type="video/mp4" />
+    </video>
+
+    <!-- ================= FIRST PAGE ================= -->
+
+    <div id="firstPage">
+      <h1>🎂 Happy Birthday 🎉</h1>
+
+      <img id="birthdayPic" src="images/bulb real.png" alt="Birthday Picture" />
+
+      <br />
+
+      <button id="startButton" onclick="birthday()">Click Me 🎁</button>
+
+      <!-- ================= SONG ================= -->
+
+      <audio id="birthdaySong">
+        <source
+          src="SOUND/71-Kevin-Lax-Happy-Birthday(chosic.com).mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+
+      <!-- ================= NEXT BUTTON ================= -->
+
+      <button id="nextButton" onclick="showVideo()">Next ➡️</button>
+    </div>
+
+    <!-- ================= VIDEO PAGE ================= -->
+
+    <div id="videoSection">
+      <video id="birthdayVideo" controls>
+        <source src="video/hafsa video1.mp4" type="video/mp4" />
+
+        Your browser does not support video.
+      </video>
+
+      <!-- Video end hone ke baad ye button show hoga -->
+
+      <button id="messageButton" onclick="showMessage()">Continue 💌</button>
+    </div>
+
+    <!-- ================= MESSAGE PAGE ================= -->
+
+    <div id="messageSection">
+      <h2>💖 A Special Message 💖</h2>
+
+      <p>
+        "i don't have words to write to tell you how special you are for me. I
+        just simply want to tell you the one who heals me, listens to me. I
+        always enjoy your company. Thankyou to be a part of my life. May your
+        life always be filled with happiness, love, beautiful memories and
+        endless smiles. Allah tumhara naseeb acha kara tum kambyiab ho Happy 18
+        Birthday! 🎂 Hope you like this.✨"
+      </p>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+      // ================= CLICK ME BUTTON =================
+
+      function birthday() {
+        // Picture change
+        document.getElementById("birthdayPic").src = "images/hafsa bulb.png";
+
+        // Song play
+        document.getElementById("birthdaySong").play();
+
+        // Background animation video show
+        const bgAnimation = document.getElementById("bgAnimation");
+
+        bgAnimation.style.display = "block";
+
+        bgAnimation.play();
+
+        // Click Me hide
+        document.getElementById("startButton").style.display = "none";
+      }
+
+      // ================= SONG END =================
+
+      document
+        .getElementById("birthdaySong")
+        .addEventListener("ended", function () {
+          // Next button show
+          document.getElementById("nextButton").style.display = "inline-block";
+        });
+
+      // ================= NEXT BUTTON =================
+
+      function showVideo() {
+        // Background animation stop
+        const bgAnimation = document.getElementById("bgAnimation");
+
+        bgAnimation.pause();
+
+        bgAnimation.style.display = "none";
+
+        // First page hide
+        document.getElementById("firstPage").style.display = "none";
+
+        // Video section show
+        document.getElementById("videoSection").style.display = "flex";
+
+        // Birthday video play
+        document.getElementById("birthdayVideo").play();
+      }
+
+      // ================= BIRTHDAY VIDEO END =================
+
+      document
+        .getElementById("birthdayVideo")
+        .addEventListener("ended", function () {
+          // Continue button show
+          document.getElementById("messageButton").style.display =
+            "inline-block";
+        });
+
+      // ================= CONTINUE BUTTON =================
+
+      function showMessage() {
+        // Video section hide
+        document.getElementById("videoSection").style.display = "none";
+
+        // Message show
+        document.getElementById("messageSection").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
+```
