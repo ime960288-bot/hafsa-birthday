@@ -58,7 +58,7 @@
         width: 100%;
         height: 100vh;
 
-        background-image: url("images/hafsa bg.jpeg");
+        background-image: url("hafsa bg.jpeg");
         background-size: cover;
         background-position: center;
 
@@ -109,7 +109,7 @@
     <!-- ================= BACKGROUND ANIMATION VIDEO ================= -->
 
     <video id="bgAnimation" muted loop>
-      <source src="video\bgm video.mp4" type="video/mp4" />
+      <source src="bgm video.mp4" type="video/mp4" />
     </video>
 
     <!-- ================= FIRST PAGE ================= -->
@@ -117,7 +117,7 @@
     <div id="firstPage">
       <h1>🎂 Happy Birthday 🎉</h1>
 
-      <img id="birthdayPic" src="images/bulb real.png" alt="Birthday Picture" />
+      <img id="birthdayPic" src="bulb real.png" alt="Birthday Picture" />
 
       <br />
 
@@ -126,10 +126,7 @@
       <!-- ================= SONG ================= -->
 
       <audio id="birthdaySong">
-        <source
-          src="SOUND/71-Kevin-Lax-Happy-Birthday(chosic.com).mp3"
-          type="audio/mpeg"
-        />
+        <source src="sound.mp3" type="audio/mpeg" />
       </audio>
 
       <!-- ================= NEXT BUTTON ================= -->
@@ -141,7 +138,7 @@
 
     <div id="videoSection">
       <video id="birthdayVideo" controls>
-        <source src="video/hafsa video1.mp4" type="video/mp4" />
+        <source src="hafsa video1.mp4" type="video/mp4" />
 
         Your browser does not support video.
       </video>
@@ -173,7 +170,7 @@
 
       function birthday() {
         // Picture change
-        document.getElementById("birthdayPic").src = "images/hafsa bulb.png";
+        document.getElementById("birthdayPic").src = "bulb real.png";
 
         // Song play
         document.getElementById("birthdaySong").play();
